@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const mtgConfidantAPI = require('./DatabaseAPI')
+const mtgConfidantAPI = require('./routes/DatabaseAPI')
+const login = require('./routes/login')
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -16,11 +17,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json()); // needed for angular requests
 app.use(express.static('build'));
 
-/** ---------- SERVER ROUTES ---------- **/
-app.get('/app', (req,res) =>{
+app.get('/', (req,res) =>{
   res.sendFile(path.join('build'));
 });
 
+/** ---------- SERVER ROUTES ---------- **/
+
 app.use('/mtgConfidantAPI', mtgConfidantAPI)
+app.use('/login/auth', login)
 
 

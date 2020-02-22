@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('./modules/Pool');
+const pool = require('../modules/Pool');
 
 router.post('/create-account', (req, res) => {
     // check if account already exists
