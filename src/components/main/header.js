@@ -21,17 +21,13 @@ const Header = (props) => {
   return (
     <div className='sticky-top'>
       <Navbar className="black" dark expand="md">
-        <NavbarBrand href="/">mtgConfidant</NavbarBrand>
+        <NavbarBrand href="/#/home">mtgConfidant</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar >
 
             <NavItem>
-              <NavLink href="/#/Signup">Signup</NavLink>
-            </NavItem>
-
-            <NavItem>
-              <NavLink href="/#/login">Login</NavLink>
+              <NavLink href="/#/login">Login/Signup</NavLink>
             </NavItem>
 
             <UncontrolledDropdown nav inNavbar>
@@ -39,11 +35,11 @@ const Header = (props) => {
                 Options
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem>
-                  Option 1
+                <DropdownItem href="/#/login">
+                  Login/Signup
                 </DropdownItem>
-                <DropdownItem>
-                  Option 2
+                <DropdownItem href='/login/auth/logout'>
+                  Logout
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>

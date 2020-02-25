@@ -9,8 +9,8 @@ import {
 import './App.css';
 import Header from './components/main/header';
 import Footer from './components/main/footer'
-import Login from './components/login'
-import Signup from './components/signup'
+import Login from './components/pages/login'
+import Home from './components/pages/home'
 
 class App extends Component {
 
@@ -42,9 +42,10 @@ class App extends Component {
           
           <Header />
           <Switch>
-            <Redirect exact from="/" to="/" />
+            <Redirect exact from="/" to="/home" />
+            <Redirect from='/login/auth/google/redirect' to='/home'/>
             <Route exact path="/login" component={Login}/>
-            <Route exact path="/signup" component={Signup}/>
+            <Route exact path="/home" component={Home}/>
             <Route render={() => <h1>404</h1>} />
           </Switch>
           <Footer />

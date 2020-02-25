@@ -6,32 +6,33 @@ import {
 } from "reactstrap";
 
 
-function LoginModal(){
+function LoginModal() {
     const [modal, setModal] = useState(false);
 
     const toggle = () => setModal(!modal);
-  
+
     return (
-      <div>
-        <Button color="success" onClick={toggle}>Login</Button>
-        <Modal isOpen={modal} toggle={toggle} className=''>
-          <ModalHeader toggle={toggle}>Login with</ModalHeader>
-          <ModalBody>
-            <Button className="btn-google" block>
-                Google+
+        <div>
+            <Button block color="success" onClick={toggle}>Login</Button>
+            <Modal isOpen={modal} toggle={toggle} className=''>
+                <ModalHeader toggle={toggle}>Login with</ModalHeader>
+                <ModalBody>
+                    <Button className="btn-google" block href='/login/auth/google'>
+                        Google+
             </Button>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
-          </ModalFooter>
-        </Modal>
-      </div>
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="secondary" onClick={toggle}>Cancel</Button>
+                </ModalFooter>
+            </Modal>
+        </div>
     );
 }
 
+
 class Login extends Component {
     render() {
-        
+
         return (
             <div className=''>
                 <Jumbotron fluid>
@@ -45,7 +46,7 @@ class Login extends Component {
                                         Welcome to mtgConfidant
                                     </CardHeader>
                                     <CardBody>
-                                        <LoginModal/>
+                                        <LoginModal />
                                     </CardBody>
                                 </Card>
                             </Col>
